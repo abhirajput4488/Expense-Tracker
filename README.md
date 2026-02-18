@@ -1,6 +1,8 @@
-# 💰 Expense Tracker - Full Stack MERN Application
+# 💰 Expense Tracker (MERN Stack)
 
-A production-grade, multi-user Expense Tracker built with the MERN (MongoDB, Express, React, Node.js) stack. This application features high financial precision, secure JWT authentication, idempotency for duplicate prevention, and a stunning glassmorphic UI.
+[![Deploy to Render](https://render.com/images/deploy-to-render.svg)](https://render.com/deploy)
+
+A production-grade, full-stack Expense Tracker built with the MERN (MongoDB, Express, React, Node.js) stack. This application features high financial precision, user authentication, idempotency for duplicate prevention, and a modern glassmorphic UI.
 
 ---
 
