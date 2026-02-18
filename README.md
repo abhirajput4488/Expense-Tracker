@@ -71,6 +71,7 @@ MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_super_secret_key
 JWT_EXPIRE=30d
 NODE_ENV=development
+FRONTEND_URL=http://localhost:5173
 ```
 
 Create a `.env` in the `frontend/` folder:
