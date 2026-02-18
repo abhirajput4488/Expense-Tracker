@@ -8,27 +8,27 @@ const errorHandler = require('./middleware/errorMiddleware');
 
 const app = express();
 
-
 app.set('trust proxy', 1);
-
 
 app.use(helmet());
 
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-idempotency-key'],
+  credentials: false
+}));
 
-app.use(cors()); 
-
+app.options('*', cors());
 
 app.use(express.json());
-
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-
 app.use('/api/auth', authRoutes);
 app.use('/api/expenses', expenseRoutes);
-
 
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Expense Tracker API' });
