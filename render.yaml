@@ -1,0 +1,32 @@
+services:
+  # Backend Service
+  - type: web
+    name: expense-tracker-api
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node src/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false # Set this in the Render Dashboard
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRE
+        value: 30d
+      - key: FRONTEND_URL
+        sync: false # Set this to your Vercel URL later
+
+  # Frontend Service (Static Site)
+  - type: web
+    name: expense-tracker-ui
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false # Set this to your Render API URL
