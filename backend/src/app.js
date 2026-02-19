@@ -10,17 +10,15 @@ const app = express();
 
 app.set('trust proxy', 1);
 
-app.use(helmet());
-
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'x-idempotency-key'],
-  credentials: false
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-idempotency-key']
 }));
 
 app.options('*', cors());
 
+app.use(helmet());
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'development') {
